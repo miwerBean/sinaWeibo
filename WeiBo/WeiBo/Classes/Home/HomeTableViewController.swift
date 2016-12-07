@@ -17,34 +17,34 @@ class HomeTableViewController: BaseViewController {
         
     }
     
-    private func initUI() {
+    fileprivate func initUI() {
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention", target: self, action: "leftItemClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "navigationbar_friendattention", target: self, action: #selector(HomeTableViewController.leftItemClick))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop", target: self, action: "rightItemClick")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop", target: self, action: #selector(HomeTableViewController.rightItemClick))
         
         
         navigationItem.titleView = titleButton
         
     }
     
-    @objc private func titleButtonClick(button: UIButton){
-        button.selected = !button.selected
+    @objc fileprivate func titleButtonClick(_ button: UIButton){
+        button.isSelected = !button.isSelected
         print("title")
     }
     
-    @objc private func leftItemClick() {
+    @objc fileprivate func leftItemClick() {
         print("left")
     }
     
-    @objc private func rightItemClick() {
+    @objc fileprivate func rightItemClick() {
         print("right")
     }
     
-    private lazy var titleButton: TitleButton = {
+    fileprivate lazy var titleButton: TitleButton = {
         let button = TitleButton()
         button.sizeToFit()
-        button.addTarget(self, action: "titleButtonClick:", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(HomeTableViewController.titleButtonClick(_:)), for: .touchUpInside)
         return button
     }()
 }

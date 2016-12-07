@@ -24,23 +24,23 @@ class BaseViewController: UITableViewController, VisitorViewDelegate {
         print("gotoCareClick")
     }
     
-    private func setupVisitorView() {
+    fileprivate func setupVisitorView() {
         
         visitor = VisitorView.loadVisitorView()
         visitor?.delegate = self
         view = visitor
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登陆", style: UIBarButtonItemStyle.Plain, target: self, action: "login")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登陆", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.login))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "rigster")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.rigster))
         
     }
     
-    @objc private func login() {
+    @objc fileprivate func login() {
         print("login")
     }
     
-    @objc private func rigster() {
+    @objc fileprivate func rigster() {
         print("rigster")
     }
 }

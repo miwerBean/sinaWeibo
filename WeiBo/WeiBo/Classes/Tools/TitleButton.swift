@@ -19,10 +19,10 @@ class TitleButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setImage(UIImage(named: "navigationbar_arrow_down"), forState: UIControlState.Normal)
-        setImage(UIImage(named: "navigationbar_arrow_up"), forState: UIControlState.Selected)
-        setTitle("bean", forState: UIControlState.Normal)
-        setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        setImage(UIImage(named: "navigationbar_arrow_down"), for: UIControlState())
+        setImage(UIImage(named: "navigationbar_arrow_up"), for: UIControlState.selected)
+        setTitle("bean", for: UIControlState())
+        setTitleColor(UIColor.orange, for: UIControlState())
     }
 
     required init?(coder aDecoder: NSCoder) {

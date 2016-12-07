@@ -22,29 +22,28 @@ class VisitorView: UIView {
     weak var delegate: VisitorViewDelegate?
     
     override func awakeFromNib() {
-        careButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        careButton.layer.borderColor = UIColor.lightGray.cgColor
         startAnimation()
     }
     
-    private func startAnimation() {
+    fileprivate func startAnimation() {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         animation.toValue = 2 * M_PI
-        animation.duration = 1
+        animation.duration = 5
         animation.repeatCount = MAXFLOAT
-        animation.removedOnCompletion = false
-        roundView.layer .addAnimation(animation, forKey: nil)
+        animation.isRemovedOnCompletion = false
+        roundView.layer.add(animation, forKey: nil)
         
     }
     
-    @IBAction func gotoCare(sender: AnyObject) {
+    @IBAction func gotoCare(_ sender: AnyObject) {
                 
         delegate?.gotoCareClick()
     
     }
     
-    
     class func loadVisitorView() -> VisitorView{
-        return NSBundle.mainBundle().loadNibNamed("VisitorView", owner: nil, options: nil).last as! VisitorView
+        return Bundle.main.loadNibNamed("VisitorView", owner: nil, options: nil)!.last as! VisitorView
     }
     
     

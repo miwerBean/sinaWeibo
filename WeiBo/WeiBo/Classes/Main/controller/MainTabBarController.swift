@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.tintColor = UIColor.orangeColor()
+        tabBar.tintColor = UIColor.orange
         addChildViewController(HomeTableViewController(), title: "首页", imageName: "tabbar_home")
         addChildViewController(MessageTableViewController(), title: "消息", imageName: "tabbar_message_center")
         addChildViewController(DiscoverViewController(), title: "广场", imageName: "tabbar_discover")
@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
         
     }
     
-    private func addChildViewController(childController: UIViewController, title: String, imageName: String) {
+    fileprivate func addChildViewController(_ childController: UIViewController, title: String, imageName: String) {
         childController.title = title
         childController.tabBarItem.image = UIImage(named: imageName)
         childController.tabBarItem.selectedImage = UIImage(named: imageName + "_highlighted")

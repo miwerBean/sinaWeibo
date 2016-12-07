@@ -13,10 +13,10 @@ extension UIBarButtonItem{
 
     convenience init(imageName: String, target: AnyObject?, action: Selector) {
         let button = UIButton()
-        button.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
-        button.setImage(UIImage(named: imageName + "_highlighted"), forState: UIControlState.Highlighted)
+        button.setImage(UIImage(named: imageName), for: UIControlState())
+        button.setImage(UIImage(named: imageName + "_highlighted"), for: UIControlState.highlighted)
         button.sizeToFit()
-        button.addTarget(target, action: action, forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         self.init(customView: button)
     }
 }
